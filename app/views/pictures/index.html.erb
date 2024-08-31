@@ -10,6 +10,7 @@
     <tr>
         <td><%= picture.content %></td>
         <td><%= picture.image %></td>
+        <td><%= link_to '編集',edit_picture_path(picture.id) %></td>
     </tr>
     <% end %>
 </table>
