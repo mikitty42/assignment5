@@ -20,7 +20,6 @@ class PicturesController < ApplicationController
       end
   end
               
-  end
 
   def edit
       @picture = Picture.find(params[:id])
@@ -54,7 +53,7 @@ class PicturesController < ApplicationController
   
   private
   
-  def picture
-      params.require(:picture).permit(:content,:image)
+  def picture_params
+      params.require(:picture).permit(:content,:image,:image_cache)
   end
 end
