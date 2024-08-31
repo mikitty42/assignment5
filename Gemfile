@@ -26,6 +26,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'bcrypt'
 gem 'faker'
+gem 'dotenv-rails'
 
 group :development, :test do
 
