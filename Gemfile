@@ -24,6 +24,7 @@ gem "bootsnap", require: false
 
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'bcrypt'
 
 group :development, :test do
 

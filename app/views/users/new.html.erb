@@ -1,2 +1,27 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<h1>Sign up</h1>
+
+<% if @user.errors.any?_ %>
+    <div id='error*_explanation'>
+        <h2><%= pluralize(@user.errors.count,"error") %>prohibited this <%= @user.name %>from being swaved:</h2>
+        <ul>
+            <% @user.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+            <% end %>
+        </ul>
+    </div>
+<% end %>
+
+<%= form_with(model: @user,local: true,, data: { turbo: false }) do |f| %>
+
+<%= f.label :name %>
+<%= f.text_field :name %>
+
+<%= f.label :email %>
+<%= f:email_field :email %>
+
+<%= f.label :password %>
+<%= f.password_field :password %>
+
+<%= f.submit 'Create my account' %>
+
+<% end %>
