@@ -1,0 +1,11 @@
+<h2>以下の内容で、登録します</h2>
+
+<%= form_with(model: @picture,local: true,, data: { turbo: false }) do |form| %>
+
+    <%= form.hidden_field :content %>
+    <%= form.hidden_field :image_cache %>
+    
+    <%= form.submit '登録する' %>
+    <%= form.submit '戻る',name: 'back' %>
+
+<% end %>
