@@ -1,8 +1,10 @@
 <h2>Picture一覧画面</h2>
+<%= notice %>
 <table>
     <tr>
         <th>Content</th>
         <th>Image</th>
+        <th>User</th>
     </tr>
     
     <% @pictures.each do |picture| %>
@@ -10,6 +12,7 @@
     <tr>
         <td><%= picture.content %></td>
         <td><%= picture.image %></td>
+        <td><%= picture.user.name %></td>
         <td><%= link_to 'pictureを詳細する',picture_path(picture.id) %></td>
         <td><%= link_to 'pictureを編集する',edit_picture_path(picture.id) %></td>
         <td><%= link_to 'pictureを削除する',picture_path(picture.id),data: {turbo_method: :delete,turbo_confirm: "Are you sure?"} %></td>

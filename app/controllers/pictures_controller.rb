@@ -8,12 +8,12 @@ class PicturesController < ApplicationController
   end
   
   def create
-      @picture = Picture.new(picture_params)
+      @picture = current_user.pictures.build(picture_params)
       if params[:back]
           render :new, status: :unprocessable_entity
       else
           if @picture.save
-              redirect_to pictures_path
+              redirect_to pictures_path,notice: 'Pictureを投稿しました'
           else
               render :new, status: :unprocessable_entity
           end
@@ -28,7 +28,7 @@ class PicturesController < ApplicationController
   def update
       @picture = Picture.find(params[:id])
       if @picture.update(picture_params)
-          redirect_to pictures_path
+          redirect_to pictures_path,notice: 'Pictureを編集しました'
       else
           render :edit, status: :unprocessable_entity
       end
@@ -42,11 +42,11 @@ class PicturesController < ApplicationController
  def destroy
      @picture = Picture.find(params[:id])
      @picture.destroy
-     redirect_to pictures_path
+     redirect_to pictures_path,notice: 'Pictureを削除しました'
  end
 
  def confirm
-     @picture = Picture.new(picture_params)
+     @picture = current_user.pictures.build(picture_params)
      render :new if @picture.invalid?
  end
   
