@@ -27,6 +27,7 @@ gem 'mini_magick'
 gem 'bcrypt'
 gem 'faker'
 gem 'dotenv-rails'
+gem 'rexml'
 
 group :development, :test do
 
@@ -35,6 +36,7 @@ end
 
 group :development do
   gem "web-console"
+  gem 'letter_opener_web'
 
 
   gem "error_highlight", ">= 0.4.0", platforms: [:ruby]
