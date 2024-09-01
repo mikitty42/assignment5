@@ -2,3 +2,5 @@
 
 <p>email:<%= @user.email %></p>
 <p>avatar: <%= image_tag @user.avatar.url %></p>
+
+<%= link_to 'Profileを編集する',edit_user_path(@user.id) %>
