@@ -1,4 +1,6 @@
 class PicturesController < ApplicationController
+    before_action :correct_user, only: [:edit]
+
   def index
       @pictures = Picture.all
   end
@@ -57,4 +59,12 @@ class PicturesController < ApplicationController
   def picture_params
       params.require(:picture).permit(:content,:image,:image_cache)
   end
+  
+  def correct_user
+      @picture = Picture.find(params[:id])
+      unless current_user.id == @picture.id
+          redirect_to new_session_path
+      end
+  end
+
 end

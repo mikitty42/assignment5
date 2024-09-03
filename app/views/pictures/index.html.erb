@@ -11,11 +11,11 @@
     
     <tr>
         <td><%= picture.content %></td>
-        <td><%= picture.image %></td>
+        <td><%= image_tag picture.image.url %></td>
         <td><%= picture.user.name %></td>
-        <td><%= link_to 'pictureを詳細する',picture_path(picture.id) %></td>
-        <td><%= link_to 'pictureを編集する',edit_picture_path(picture.id) %></td>
-        <td><%= link_to 'pictureを削除する',picture_path(picture.id),data: {turbo_method: :delete,turbo_confirm: "Are you sure?"} %></td>
+        <td><%= link_to 'picture詳細',picture_path(picture.id) %></td>
+        <td><%= link_to 'picture編集',edit_picture_path(picture.id) %></td>
+        <td><%= link_to 'picture削除',picture_path(picture.id),data: {turbo_method: :delete,turbo_confirm: "Are you sure?"} %></td>
     </tr>
     <% end %>
 </table>

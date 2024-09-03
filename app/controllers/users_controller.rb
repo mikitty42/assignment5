@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+    before_action :ensure_correct_user,only: [:edit,:update]
+      
   def new
       @user = User.new
   end
@@ -30,10 +32,18 @@ class UsersController < ApplicationController
       end
   end
   
+  def ensure_correct_user
+      @user = User.find(params[:id])
+      unless current_user.id == @user.id
+          redirect_to new_session_path
+      end
+  end
+  
   
   private
   
   def user_params
       params.require(:user).permit(:name,:email,:password,:password_confirmation,:avatar,:avatar_cache)
   end
+
 end
