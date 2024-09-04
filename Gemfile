@@ -28,6 +28,9 @@ gem 'bcrypt'
 gem 'faker'
 gem 'dotenv-rails'
 gem 'rexml'
+gem 'bootstrap', '~> 5.3.0'
+gem 'jquery-rails'
+gem "sassc-rails"
 
 group :development, :test do
 

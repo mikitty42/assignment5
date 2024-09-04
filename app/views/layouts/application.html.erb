@@ -11,16 +11,26 @@
   </head>
 
   <body>
+  <nav class="navbar bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand">Navbar</a>
+    <% if logged_in? %>
+        <%= link_to 'Profile',user_path(current_user.id) %>
+        <%= link_to 'Logout',session_path(current_user.id),data: {turbo_method: :delete} %>
+    <% else %>
+        <%= link_to 'Sign up',new_user_path %></button>
+        <%= link_to 'Login',new_session_path %>
+    <% end %>
+    <form class="d-flex" role="search">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
   <% flash.each do |key,value| %>
    <%= content_tag(:div,value,class: "#{key}") %>
   <% end %>
-  <% if logged_in? %>
-    <%= link_to 'Profile',user_path(current_user.id) %>
-    <%= link_to 'Logout',session_path(current_user.id),data: {turbo_method: :delete} %>
-  <% else %>
-    <%= link_to 'Sign up',new_user_path %>
-    <%= link_to 'Login',new_session_path %>
-  <% end %>
+
     <%= yield %>
   </body>
 </html>

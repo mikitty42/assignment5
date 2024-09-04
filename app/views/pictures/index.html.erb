@@ -1,6 +1,6 @@
 <h2>Picture一覧画面</h2>
 <%= notice %>
-<table>
+<table class="table table-striped">
     <tr>
         <th>Content</th>
         <th>Image</th>
@@ -13,9 +13,9 @@
         <td><%= picture.content %></td>
         <td><%= image_tag picture.image.url %></td>
         <td><%= picture.user.name %></td>
-        <td><%= link_to 'picture詳細',picture_path(picture.id) %></td>
-        <td><%= link_to 'picture編集',edit_picture_path(picture.id) %></td>
-        <td><%= link_to 'picture削除',picture_path(picture.id),data: {turbo_method: :delete,turbo_confirm: "Are you sure?"} %></td>
+        <td><button type="button" class="btn btn-outline-primary"><%= link_to 'picture詳細',picture_path(picture.id) %></button></td>
+        <td><button type="button" class="btn btn-outline-danger"><%= link_to 'picture編集',edit_picture_path(picture.id) %></button></td>
+        <td><button type="button" class="btn btn-outline-warning"><%= link_to 'picture削除',picture_path(picture.id),data: {turbo_method: :delete,turbo_confirm: "Are you sure?"} %></button></td>
     </tr>
     <% end %>
 </table>
